@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>王玉铃的个人简历</title>
+		
+		<link rel="stylesheet" href="animate.css">
+		<script src="jQuery-3.2.min.js"></script>
+		<style>
+			body{
+				margin:0;padding:0;
+			}
+			.aling{
+				width:100%;
+				font-size:15px;
+				
+			}
+			.conleft{
+				width:20%;
+				background:#000;
+				color:#fff;
+				float:left;
+				text-align:center;
+				padding-top:20px;
+			}
+			.conleft .con{
+			}
+			.conleft .con img{
+			    width:60%;
+				border-radius:90px;
+			}
+			
+			.conleft .con nav{
+				padding-top:20px;
+			}
+			.conleft .con a:hover{
+				cursor:pointer;
+			}
+			.conright{
+				width:79%;
+				background:url('img/bg.png');
+				overflow:hidden;
+			}
+			.toggle{
+				display:none;
+				width:80%;
+				height:300px;
+				border:3px solid #ccc;
+				box-shadow: 10px 10px 5px rgba(148, 139, 139, 0.67);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aling">
+			<div class="conleft">
+				<div class="con">
+					<img src="./img/name.jpeg" alt="就是照片">
+					<nav>
+						<a><p>个人资料</p></a>
+						<a><p>工作经历</p></a>
+						<a><p>教育背景</p></a>
+						<a><p>项目经验</p></a>
+						<a><p>证书荣誉</p></a>
+						<a><p>个人介绍</p></a>
+						<a><p>联系方式</p></a>
+						<a><p>♡</p></a>
+						<a><p>♡</p></a>
+						<a><p>♡</p></a>
+						<a><p>♡</p></a>
+					<nav>
+				</div>
+			</div>
+			<div class="conright">
+				<center>
+					<h1 class="namer">个人资料</h1>
+					<div class="toggle">
+						
+					</div>
+				</center>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				var height= $(window).height();
+				$('.conleft,.conright').css('height',height);
+				$('nav a p').mouseover(function(){
+					$(this).addClass('animated pulse');
+					$('.namer').html(this.innerHTML); 
+					$('.toggle').css('display','block');
+					
+					function content(){
+						var con={
+							'个人资料':'姓     名：王玉玲 <br>性    别：女 <br>出生年月：1996/11/4 <br>毕业院校：海南热带海洋学院 <br>专    业：计算机科学与技术 <br>学    历：本科 <br>目前状况：应届毕业生',
+							'工作经历':'博物馆讲解员  1.在学校博物馆负责接待参观领导及嘉宾<br> &nbsp;&nbsp;2.负责海捞瓷展厅的讲解工作<br><br>   家教老师   1.负责学生课后作业辅导<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp2.给学生作业练习讲解，巩固所学内容<br>3.讲解拓展课外知识',
+							'教育背景':'主修课程&nbsp&nbsp&nbsp&nbspC语言程序设计、Java程序设计、.NET程序设计、数据结构、操作系统、数据库、计算机网络、算计系统结构、编译原理、web课程设计、单片机应用等',
+							'项目经验':'项目内容：这是一款移动端购物APP，里面包含服装配饰、家用电器、手机数码、电脑办公等版块区域，以及秒杀和品牌活动等。本次项目负责首页、品牌活动和购物分类专栏页面设计。<br>Github:   http://github.com/alingsoul<br>学习主页： alingsoul.github.io',
+							'证书荣誉':'&nbsp&nbsp&nbsp证书&nbsp&nbsp&nbsp&nbsp驾驶执照、大学英语四级、普通话等级证书、高级中学信息技术教师资格证<br>荣誉&nbsp&nbsp&nbsp&nbsp班级三好学生、优秀讲解员、优秀学生干部、志愿者',
+							'个人介绍':'热爱编程，熟悉Ps、Flash软件，以及Word、Excel、PowerPoint等办公软件。会一些基础的HTML+css,自己仿照京东淘宝等做过一些移动端静态网页，了解jQuery，JavaScript以及boostrap。希望以后能往UI或前端方向发展成为一名优秀的前端工程师。',
+							'联系方式':'手    机：177 8973 5675<br>邮    箱：alingsoul@foxmail.com<br>地    址：广州市',
+							'other':'这个世界上大多数人，都在拼尽全力，用心经营自己的人生，小心走好每一步。<br>可是，想要去往罗马的人太多，条条大路太拥挤。<br>当有人问：“劳驾，请阁下指点通往地狱之路？”<br>听着是挺傻叉，却同时拥有毁灭般的迷人。',
+						}
+						return{
+							con:con
+						}
+					}
+					
+					var con=content();
+
+					switch(this.innerHTML){
+						case '个人资料':
+							$('<h3>'+con.con.个人资料+'</h3>',{class:'append'}).appendTo($('.toggle'))
+							break;
+						case '工作经历':
+							$('<h3>'+con.con.工作经历+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+						case '教育背景':
+							$('<h3>'+con.con.教育背景+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+						case '项目经验':
+							$('<h3>'+con.con.项目经验+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+						case '证书荣誉':
+							$('<h3>'+con.con.证书荣誉+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+						case '个人介绍':
+							$('<h3>'+con.con.个人介绍+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+						case '联系方式':
+							$('<h3>'+con.con.联系方式+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+						case '♡':
+							$('<h3>'+con.con.other+'</h3>',{class:'append'}).appendTo($('.toggle'));
+							break;
+					}
+					
+				});
+
+				$('nav a p').mouseout(function(){
+					$(this).removeClass('animated pulse');
+						 $(".toggle").empty();
+
+				});
+				
+			})
+		</script>
+	</body>
+</html>
